@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absensi Bulanan Siswa</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1976d2;
+      margin-bottom: 20px;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    select, input[type="number"], button {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      background: #1976d2;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0d47a1;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      text-align: center;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background: #1976d2;
+      color: white;
+    }
+
+    .status-btn {
+      border: none;
+      padding: 5px 10px;
+      margin: 2px;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hadir { background: #4CAF50; }
+    .izin { background: #FFC107; color: black; }
+    .sakit { background: #FF5722; }
+    .alpha { background: #F44336; }
+
+    .status-btn:hover { opacity: 0.8; transform: scale(1.05); }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      th, td { font-size: 12px; }
+      .status-btn { padding: 4px 8px; font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Absensi Bulanan Siswa</h1>
+
+  <div class="controls">
+    <label for="bulan">Bulan:</label>
+    <select id="bulan">
+      <option value="01">Januari</option>
+      <option value="02">Februari</option>
+      <option value="03">Maret</option>
+      <option value="04">April</option>
+      <option value="05">Mei</option>
+      <option value="06">Juni</option>
+      <option value="07">Juli</option>
+      <option value="08">Agustus</option>
+      <option value="09">September</option>
+      <option value="10">Oktober</option>
+      <option value="11">November</option>
+      <option value="12">Desember</option>
+    </select>
+
+    <label for="tanggal">Tanggal:</label>
+    <input type="number" id="tanggal" min="1" max="31" value="1">
+  </div>
+
+  <table id="tabelAbsensi">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama Siswa</th>
+        <th>Keterangan</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="dataSiswa"></tbody>
+  </table>
+
+  <div class="footer">© 2025 | Absensi Siswa XI TKJ 2</div>
+
+<script>
+  const siswa = [
+    "Andra juan Pareta", "Areta Arfani", "Arthur Teduh Rahendra", "Auliya Febri Damayanti",
+    "Aura Nur Nafisah", "Bahrul Adee Irawan", "Dandi Septa Rahmadhan", "Diyan Safitri",
+    "Elsya Nur Adibah", "Erik Puji Wicaksono", " Ferdina Destya Saputra", "Indira Rahma Alisya",
+    "Jeconiah Ivan Prasetyo", "kartika Ayu Prawita Sari", "luna Adelia", "Muhammad Farhan Syarofi",
+    "Muhammad Rehan Prasetyo", "Muhammad Rizky Hidayatulloh", "Muhammad Rony Wijaya", "Muhammad Rosyid Adis Saputra", 
+    "Muhammad Syifa Qolbi", "Muhammad Tsaqif Akhtar", "Muhammad Wildan alamsyah Putra", "Muhammad Zola Adi Firmansyah", 
+    "Muhammad Dwi Afandi", "Nada Romadhona", "Nadya Amelia", "Putri Elok Margaretha", "Qirana Dwi Angresti", "Richard QPU",
+    "Risma Restu Cahaya Tri Permata Sari", "Safara Sahrotul Sita", "Selvia Meilani Rosydah", "Seza Amelia", "Tata Aditya", "Zahra Keysa Febiola"
+  ];
+
+  const tbody = document.getElementById("dataSiswa");
+  const bulanSelect = document.getElementById("bulan");
+  const tanggalInput = document.getElementById("tanggal");
+
+  // Fungsi untuk membuat tabel absensi
+  function muatAbsensi() {
+    const bulan = bulanSelect.value;
+    const tanggal = tanggalInput.value;
+
+    if (!tanggal) return; // tidak tampil jika tanggal kosong
+
+    tbody.innerHTML = "";
+
+    siswa.forEach((nama, index) => {
+      const key = `${index}-${bulan}-${tanggal}`;
+      const status = localStorage.getItem(key) || "";
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${nama}</td>
+        <td>
+          <button class="status-btn hadir" onclick="toggleStatus(${index}, '${bulan}', '${tanggal}', 'Hadir')">Hadir</button>
+          <button class="status-btn izin" onclick="toggleStatus(${index}, '${bulan}', '${tanggal}', 'Izin')">Izin</button>
+          <button class="status-btn sakit" onclick="toggleStatus(${index}, '${bulan}', '${tanggal}', 'Sakit')">Sakit</button>
+          <button class="status-btn alpha" onclick="toggleStatus(${index}, '${bulan}', '${tanggal}', 'Alpha')">Alpha</button>
+        </td>
+        <td id="status-${index}" style="font-weight:bold; color:#333;">${status}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  // Fungsi toggle status (klik ulang untuk hapus)
+  function toggleStatus(index, bulan, tanggal, status) {
+    const key = `${index}-${bulan}-${tanggal}`;
+    const current = localStorage.getItem(key);
+    const cell = document.getElementById(`status-${index}`);
+
+    if (current === status) {
+      // Jika diklik ulang status yang sama → hapus
+      localStorage.removeItem(key);
+      cell.textContent = "";
+      cell.style.color = "#333";
+    } else {
+      // Simpan status baru
+      localStorage.setItem(key, status);
+      cell.textContent = status;
+    }
+  }
+
+  // Update otomatis jika bulan atau tanggal diubah
+  bulanSelect.addEventListener("change", muatAbsensi);
+  tanggalInput.addEventListener("input", muatAbsensi);
+
+  // Set tanggal default hari ini
+  window.onload = () => {
+    const today = new Date();
+    bulanSelect.value = String(today.getMonth() + 1).padStart(2, "0");
+    tanggalInput.value = today.getDate();
+    muatAbsensi();
+  };
+</script>
+</body>
+</html>

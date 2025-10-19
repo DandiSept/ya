@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Kelas XI TKJ 2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    <h1>Website Kelas XI TKJ 2</h1>
+    <p>SMK Negeri 1 Trowulan | Tahun Ajaran 2025/2026</p>
+    <button class="logout" onclick="logout()">Logout</button>
+  </header>
+
+  <nav>
+    <a href="#profil">Profil</a>
+    <a href="#siswa">Siswa</a>
+    <a href="#jadwal">Jadwal</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#Struktur_Kelas">Struktur Kelas</a>
+    <a href="#anggota_siswa"<>Anggota Siswa</a>
+  </nav>
+
+  <section id="profil">
+    <h2>Profil Kelas</h2>
+    <p>
+      Kelas XI TKJ 2 adalah kelas yang terdiri dari 36 siswa dengan semangat tinggi dalam bidang teknologi.
+      Kami belajar tentang jaringan komputer, administrasi server, dan keamanan jaringan.
+    </p>
+  </section>
+
+  <section id="siswa">
+    <h2>Daftar Siswa</h2>
+    <table class="siswa-list">
+      <tr><th>No</th><th>Nama Lengkap</th><th>Jenis Kelamin</th></tr>
+      <td>1</td>
+        <td>Andra Juan Pareta</td>
+        <td>Laki-laki</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Areta Arfani</td>
+        <td>Perempuan</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Arthur Teduh Rahendra</td>
+        <td>Laki-laki</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Auliya Febri Darmawanti</td>
+        <td>Perempuan</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Aurah Nur Nafisah</td>
+        <td>Perempuan</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Bahrul Adee Irawan</td>
+        <td>Laki-laki</td>
+      </tr>
+    </table>
+  </section>
+
+  <section id="Struktur_Kelas">
+  <h2>Struktur Kelas</h2>
+    <div class="struktur-container">
+    <div class="ketua-box">
+      <strong>Wali Kelas</strong>
+      <p>Pak Arip</p>
+    </div>
+    <div class="struktur-container">
+    <div class="ketua-box">
+      <strong>Ketua Kelas</strong>
+      <p>Andra Juan Pareta</p>
+    </div>
+
+    <ul class="jabatan-box">
+      <li><strong>Wakil Kepala Kelas</strong><br>Areta Arfani</li>
+      <li><strong>Sekretaris</strong><br>Arthur Teduh Rahendra</li>
+      <li><strong>Bendahara</strong><br>Auliya Febri Darmawanti</li>
+      <li><strong>Humas</strong><br>Aurah Nur Nafisah</li>
+      <li><strong>Koordinator Acara</strong><br>Bahrul Adee Irawan</li>
+    </ul>
+  </section>
+
+
+
+  <section id="jadwal">
+    <h2>Jadwal Pelajaran</h2>
+    <table class="jadwal-table">
+      <tr><th>Hari</th><th>Mata Pelajaran</th><th>Guru Pembimbing</th></tr>
+      <tr><td>Senin</td>
+        <td>
+          <ul>
+           <li>Perencanaan jaringan</li> 
+            <li>Teknologi Jaringan kabel & Nierkable</li> 
+            <li>Administrasi Jaringan</li>
+          </ul>
+        </td>
+      <td>
+        <ul>
+          <li>Pak Syafiq</li> 
+          <li>Pak Nanda</li> 
+          <li>Bu Kurnia</li>
+        </ul>
+      </td></tr>
+
+      <tr><td>Selasa</td>
+        <td>
+          <ul>
+            <li>pemasangan & konfigurasi perangkat jaringan</li> 
+            <li>keamanan Jaringan</li> 
+            <li>pemasangan & konfigurasi perangkat jaringan</li>
+          </ul>
+        </td>
+      <td>
+        <ul>
+          <li>Pak fikih</li> 
+          <li>Pak Nanda</li> 
+          <li>Pak Dedi</li>
+        </ul>
+      </td></tr>
+
+      <tr><td>Rabu</td>
+        <td>
+          <ul>
+            <li>PJOK</li> 
+            <li>Sejarah</li> 
+            <li>PAI</li>
+            <li>PPKN</li>
+          </ul>
+        </td> 
+      <td>
+        <ul>
+          <li>Pak Rino</li> 
+          <li>Bu Esti</li> 
+          <li>Pak Hikmah</li>
+          <li>Bu Shifty</li>
+        </ul>
+      </td></tr>
+
+      <tr><td>Kamis</td>
+        <td>
+          <ul>
+            <li>Matematika</li> 
+            <li>Bahasa Inggris</li> 
+            <li>Bk</li>
+            <li>Bahasa Indonesia</li>
+          </ul>
+        </td>
+      <td>
+        <ul>
+          <li>Pak Arib</li> 
+          <li>Bu Joosan</li> 
+          <li>BU Putri</li>
+          <li>Bu Ummul(Bunda)</li>
+        </ul>
+      </td></tr>
+
+      <tr><td>Jumat</td>
+        <td>
+          <ul>
+            <li>Pemasangan & konfigurasi Perangkat Jaringan</li> 
+            <li>Produk Kreatif & Kewirausahaan</li>
+          </ul>
+        </td>
+      <td>Bapak Dedi</td></tr> 
+    </table>
+  </section>
+
+  <section id="galeri">
+    <h2>Galeri Kegiatan</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/300x200?text=Kegiatan+1" alt="Kegiatan 1">
+      <img src="https://via.placeholder.com/300x200?text=Kegiatan+2" alt="Kegiatan 2">
+      <img src="https://via.placeholder.com/300x200?text=Kegiatan+3" alt="Kegiatan 3">
+    </div>
+      <!-- informasi siswa -->
+  </section>
+  <section id="anggota_siswa">
+    <div class="container">
+      <h2>Informasi Siswa</h2>
+      <p>Box berisi foto dan nama siswa.</p>
+
+    <main class="grid">
+      <!-- Card siswa 1 -->
+      <article class="card">
+        <div class="avatar">
+          <img src="img/siswa1.jpg" alt="Foto Budi"
+        onclick="openImage('img/siswa1.jpg','Budi Santoso')" 
+        style="cursor: pointer;">
+        </div>
+        <div class="info">
+          <p class="name">Budi Santoso</p>
+          <p class="meta">X MIPA 2 — NIS: 10235</p>
+        </div>
+        <div class="badge">X MIPA</div>
+      </article>
+      <!-- Card siswa 2 -->
+      <article class="card">
+        <div class="avatar">
+          <img src="img/siswa2.jpg" alt="Foto Siti"
+        onclick="openImage('img/siswa2.jpg','Siti Aminah')" 
+        style="cursor: pointer;">
+        </div>
+        <div class="info">
+          <p class="name">Siti Aminah</p>
+          <p class="meta">X MIPA 2 — NIS: 10236</p>
+        </div>
+        <div class="badge">X MIPA</div>
+      </article>
+
+      <!-- Card siswa 3 -->
+      <article class="card">
+        <div class="avatar">
+          <img src="img/siswa3.jpg" alt="Foto Agus"
+        onclick="openImage('img/siswa3.jpg','Agus Salim')" 
+        style="cursor: pointer;">
+        </div>
+        <div class="info">
+          <p class="name">Agus Salim</p>
+          <p class="meta">X MIPA 2 — NIS: 10237</p>
+        </div>
+        <div class="badge">X MIPA</div>
+      </article>
+
+    </main>
+  </div>
+</section>
+  <div id="imageModal" class="modal">
+    <span class="close"
+  onclick="closeImage()">&times;</span>
+    <img id="modalImage" class="modal-content" alt ="">
+    <div id="caption"></div>
+  </div>
+
+  <footer>
+    <p>© 2025 XI TKJ 2 | Dibuat dengan ❤️ oleh Tim Kelas</p>
+  </footer>
+
+  <script>
+    function logout() {
+      alert("Anda telah logout!");
+      window.location.href = "index.html";
+    }
+
+    // Fungsi Dark Mode
+    function toggleTheme() {
+      const body = document.body;
+      const button = document.querySelector('.theme-toggle');
+      body.classList.toggle('dark-mode');
+
+      if (body.classList.contains('dark-mode')) {
+        button.textContent = "☀️";
+        localStorage.setItem('theme', 'dark');
+      } else {
+        button.textContent = "🌙";
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    // Simpan preferensi tema
+    window.onload = () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.querySelector('.theme-toggle').textContent = "☀️";
+      }
+    }
+  </script>
+  <script src ="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,498 @@
+:root {
+  --gap: 20px;
+  --card: #ffffff;
+  --radius: 12px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --muted: #555;
+  --accent: #007bff;
+}
+
+/* === STYLE UMUM === */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* === HEADER === */
+header {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  position: relative;
+  transition: background 0.4s;
+}
+
+header h1 {
+  margin-bottom: 5px;
+  font-size: 1.8rem;
+}
+
+header p {
+  margin-top: 0;
+  font-size: 0.95rem;
+}
+
+/* Tombol Logout dan Dark Mode */
+.logout, .theme-toggle {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.logout {
+  background-color: #ff5252;
+  color: white;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.logout:hover {
+  background-color: #c62828;
+}
+
+.theme-toggle {
+  background-color: #fff;
+  color: #007bff;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  font-weight: bold;
+}
+
+.theme-toggle:hover {
+  background-color: #e0e0e0;
+}
+
+/* === NAVIGASI === */
+nav {
+  background-color: #0056b3;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  transition: background 0.4s;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 5px 10px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* === SECTION KONTEN === */
+section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h2 {
+  color: #0056b3;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 5px;
+  font-size: 1.4rem;
+  transition: color 0.4s, border 0.4s;
+}
+/* === STRUKTUR KELAS === */
+#struktur_kelas {
+  text-align: center;
+}
+
+#struktur_kelas h2 {
+  font-size: 2em;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+/* Kotak ketua kelas */
+.ketua-box {
+  background: #fff;
+  border: 3px solid #000;
+  box-shadow: 6px 6px 0 #000;
+  border-radius: 10px;
+  padding: 25px 40px;
+  width: 280px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+  font-weight: bold;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.ketua-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 9px 9px 0 #000;
+}
+
+/* Grid untuk kartu */
+.jabatan-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+}
+
+/* Tampilan tiap kotak */
+.jabatan-box li {
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 20px 10px;
+  font-weight: 600;
+  color: #111;
+  box-shadow: 5px 5px 0 #000; /* bayangan kotak tegas seperti gambar */
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+/* Efek hover */
+.jabatan-box li:hover {
+  transform: translateY(-4px);
+  box-shadow: 8px 8px 0 #000;
+}
+
+/* Jabatan (dalam li) */
+.jabatan-box strong {
+  display: block;
+  font-size: 1.05em;
+  margin-bottom: 6px;
+  color: #000;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 600px) {
+  .jabatan-box {
+    grid-template-columns: 1fr;
+  }
+
+  .jabatan-box li {
+    font-size: 0.95em;
+    padding: 15px;
+  }
+}
+
+/* === TABEL === */
+.siswa-list, .jadwal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 0.95rem;
+  transition: background 0.4s, color 0.4s;
+}
+
+.siswa-list th, .siswa-list td,
+.jadwal-table th, .jadwal-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.siswa-list tr:nth-child(even),
+.jadwal-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.jadwal-table ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+
+/* === GALERI === */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  padding: 15px 0;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  transition: background 0.4s;
+}
+
+/* === LOGIN PAGE === */
+body.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #007bff, #00bcd4);
+}
+
+.login-container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-container h2 {
+  margin-bottom: 25px;
+  color: #007bff;
+  font-size: 1.6rem;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.login-container input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+.login-container button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-container button:hover {
+  background-color: #0056b3;
+}
+
+.login-container p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.login-container a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-container a:hover {
+  text-decoration: underline;
+}
+
+/* === DARK MODE === */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode header {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode nav {
+  background-color: #2a2a2a;
+}
+
+body.dark-mode footer {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode h2 {
+  color: #90caf9;
+  border-color: #42a5f5;
+}
+
+body.dark-mode .siswa-list tr:nth-child(even),
+body.dark-mode .jadwal-table tr:nth-child(even) {
+  background-color: #1f1f1f;
+}
+
+body.dark-mode .siswa-list th,
+body.dark-mode .jadwal-table th,
+body.dark-mode .siswa-list td,
+body.dark-mode .jadwal-table td {
+  border-color: #333;
+}
+
+body.dark-mode .theme-toggle {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-mode .theme-toggle:hover {
+  background-color: #555;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
+  nav {
+    flex-direction: column;
+  }
+  section {
+    padding: 30px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.2rem;
+  }
+  nav a {
+    font-size: 0.85rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
+.container {
+  margin-top: 20px;
+  font-size: 2em;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+/* informasi siswa*/
+/* Grid siswa */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--gap, 20px);
+}
+
+/* Box (card) siswa */
+.card .avatar img {
+  width: 120px;      /* lebar gambar */
+  height: 120px;     /* tinggi gambar */
+  object-fit: cover; /* agar gambar tidak gepeng */
+  border-radius: 50%; /* opsional: biar jadi bulat */
+  border: 2px solid #ccc;
+  transition: transform 0.2s ease;
+}
+
+.card .avatar img:hover {
+  transform: scale(1.05); /* efek zoom saat dihover */
+}
+
+/* Foto siswa */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  padding-top: 80px;
+  left : 0;
+  top : 0;
+  width : 100%;
+  height : 100%;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 70%;
+  max-height: 70dvh;
+  border-radius: 10dvh;
+  box-shadow: 0 4px 12px black;
+}
+
+#caption {
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+}
+
+.close {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+/* Info siswa */
+.info {
+  flex: 1;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0 0 4px;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Badge kelas */
+.badge {
+  background: rgba(79, 70, 229, 0.1);
+  color: var(--accent);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+/* Responsif */
+@media (max-width: 480px) {
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .avatar {
+    width: 30px;
+    height: 40px;
+  }
+
+  .badge {
+    align-self: flex-end;
+    margin-top: 8px;
+  }
+}

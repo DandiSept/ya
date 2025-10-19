@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Website Kelas XI TKJ 2</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #007bff, #00bcd4);
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 25px;
+      color: #007bff;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .login-container input:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0,123,255,0.3);
+    }
+
+    .login-container button {
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-container button:hover {
+      background-color: #0056b3;
+    }
+
+    .login-container p {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .login-container a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Login Kelas XI TKJ 2</h2>
+    <form onsubmit="return loginUser()">
+      <input type="text" id="username" placeholder="Masukkan Username" required>
+      <input type="password" id="password" placeholder="Masukkan Password" required>
+      <button type="submit">Masuk</button>
+    </form>
+    <p>Belum punya akun? <a href="#">Hubungi wali kelas</a></p>
+  </div>
+
+  <script>
+    // Validasi sederhana (hanya di sisi klien)
+    function loginUser() {
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+
+      if (user === "admin" && pass === "12345") {
+        window.location.href = "kelas.html"; // Arahkan ke halaman kelas
+        return false;
+      } else {
+        alert("Username atau password salah!\nCoba gunakan admin / 12345");
+        return false;
+      }
+    }
+  </script>
+
+</body>
+</html>
